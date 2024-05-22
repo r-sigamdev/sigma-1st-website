@@ -44,7 +44,7 @@ header{
 
 /* //navigation bar */
 nav{
-    font-size: 2rem;
+    font-size: 0.5rem;
     font-weight: bold;
     background-color: #fff;
     padding: 0.5rem;
@@ -55,6 +55,7 @@ nav{
     /* to make our navigation responsive(flex) */
     justify-content: space-evenly;
     /* to make the content in the nav spread evenly across the navigation bar */
+    gap:min(o.2rem);
 
 }
 

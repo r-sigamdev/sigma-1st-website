@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    display: block;
+    /* by default there will be a space b/w image & under the image border */
+    /* it removes space under the image, b/w image & border  */
+    max-width: 100%;
+    /* by this the image width don't go beyond it's container(article) */
+    height: auto;
+    /* by this it adjusts it's height acc to it's width */
+}
+html{scroll-behavior: smooth;}
+/* to make the html document scroll smoothly */
+body{
+    min-height: 100vh;
+    background-color: #475569;
+    background-image: radial-gradient(whitesmoke,#475569);
+
+    display: flex;
+    /* we use display flex to make our body flex */
+    flex-direction: column;
+    /* we make our body elements(header, main & footer) align column direction (vertical)*/
+}
+
+
+/* //header & footer */
+header , footer{
+    position: sticky;
+    /* to make the header & footer sticky at theier position */
+    background-color: #1e293b;
+    color: whitesmoke;
+    text-align: center;
+    /* to make the header & footer align center horizontally */
+}
+header{
+    top: 0;
+    /* to make the header stick from top to 0 */
+    font-size: 1.5rem;
+
+}
+
+/* //navigation bar */
+nav{
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+    font-weight: bolder;
+
+    display: flex;
+    /* to make our navigation responsive(flex) */
+    justify-content: space-evenly;
+    /* to make the content in the nav spread evenly across the navigation bar */
+
+}
+
+nav a, nav:visited{
+    color: black;
+}
+
+nav a:hover, nav a:focus{
+    color: rgba(0, 0, 0, 0.685);
+}
+
+/* //main content */
+main{
+    display: flex;
+    flex-grow: 1;
+    /* this makes all content(header, main & footer) adjust acc to aspect ratio */
+    /* value "1" makes them grow equally */
+    flex-direction: column;
+    /*this makes the 3 cards align verically  */
+    align-items: center;
+        /*this makes the 3 cards align verically center  */
+
+    gap: 1.5rem;
+    /* for the gap b/w main to header & footer */
+    padding: 1rem;
+
+}
+
+/* //footer */
+footer{
+    bottom: 0;
+    /* to make the footer stick from bottom to 0 */
+    font-size: 1.2rem;
+}
+
+/* //profile card */
+.card{
+    scroll-margin-top: 8rem;
+    width: min(100%,350px);
+    /* 100% is the min width it meand: min width is the 100% of the container */
+    /* 350px is the the card's width should not go that limit */
+    background-color: #cbd5ea;
+    /* to make the card seperate from the background(background color-#475569) */
+    border: 2px solid black;
+    /* for the border seperation */
+    border-radius: 22px;
+    /* to make the border round */
+    padding: 1rem;
+    /* to make the image seperate from the border(container) */
+
+    display: flex;
+    /* to make the container flex */
+    flex-direction: column;
+    /* to make the items in the container(image & para) align vertically */
+    /* /////note:  */
+    align-items: center;
+    /* to make the items in the container(image & para) align vertically center */
+    /* note: here we are not centering the figcaption, because it is a text property */
+
+
+
+}
+.card figure{
+    display: flex;
+    /* to make the container flex */
+    flex-flow: column nowrap;
+    /* column - to align image & para vertical */
+    /* nowrap - to make the image & para nowrap while adjusting aspect ratio */
+}
+.card img{
+    border: 5px double #333;
+    border-radius: 50%;
+
+}
+.card figcaption{
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+    margin: 1rem;
+    /* 1rem distance from the image */
+}
+
+
+
+
+/* //media queries */
+
+/* small */
+@media screen and (min-width:576px){
+    main{
+        justify-content: center;
+        flex-flow: row wrap;
+
+    }
+    .card{
+        width: min(100%, 400px);
+    }
+}
+
+/* medium */
+@media screen and ( min-width:768px){
+    nav{
+        display: none;
+    }
+    .card{
+        width: min(100%, 325px);
+    }
+    .card figure{
+        flex-flow: column-reverse;
+
+    }
+   /*  .card figcaption{
+        margin-bottom: 1rem;
+    } */
+    .card p{
+        margin-top: 1rem;
+    }
+}
+
+/* large */
+@media screen and (min-width:992px){
+    .card{
+        width: min(100%,400px);
+    }
+}
+
+/* xl */
+@media screen and (min-width:1200px){
+    .card{
+        width: min( calc(33% - 1rem), 500px);
+    }
+}
+
+/* mobile landscape */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4){
+    nav{
+        display: none;
+    }
+    main{
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+    }
+    .card{
+        width: min( calc(33% - 0.25rem), 200px);
+    }
+    header{
+        font-size: 1.5rem;
+    }
+    .card figcaption,.card p{
+        font-size: 1.25rem;
+    }
+   
+    
+}
